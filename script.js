@@ -20,16 +20,25 @@ console.log(document.querySelector('.guess').value);
 const secretNumber = Math.trunc(Math.random() * 20) + 1; // incluindo o +1 garantimos que o resultado seja até o número 20, sem ele o resultado só iria até 19.9999
 let score = 20;
 
-document.querySelector('.number').textContent = secretNumber;
-
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
+  // Quando o jogador coloca zero
   if (!guess) {
     document.querySelector('.message').textContent = '🤨 No number!';
+
+    // Quando o jogador vence
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
+
+    document.querySelector('body').style.backgroundColor = '#60b347';
+
+    document.querySelector('.number').style.width = '30rem';
+
+    document.querySelector('.number').textContent = secretNumber;
+
+    // Quando o jogador erra com um número maior
   } else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📈 Too High!';
@@ -39,6 +48,8 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = '🤯 Game Over';
       document.querySelector('.score').textContent = 0;
     }
+
+    // Quando o jogador erra com um número menor
   } else if (guess < secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📉 Too Low!';
@@ -52,3 +63,4 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 // Implementing the Game Logic
+// Manipulating CSS Styles
