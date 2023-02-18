@@ -72,3 +72,34 @@ document.querySelector('.again').addEventListener('click', function () {
   displayBody('#222');
   displayWidth('15rem');
 });
+
+// Modal
+
+const howToPlay = document.querySelector('.howToPlay');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnClose = document.querySelector('.close-modal');
+
+console.log(howToPlay);
+
+howToPlay.addEventListener('click', function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+});
+
+btnClose.addEventListener('click', function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
+
+overlay.addEventListener('click', function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
+});
