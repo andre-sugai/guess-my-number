@@ -51,8 +51,8 @@ document.querySelector('.check').addEventListener('click', function () {
       displayMessage(guess > secretNumber ? '📈 Too High!' : '📉 Too Low!');
 
       score--;
-
-      displayScore(score);
+      document.querySelector('.score').textContent = score;
+      // displayScore(score);
     } else {
       displayMessage('🤯 Game Over');
       displayScore(0);
@@ -61,7 +61,7 @@ document.querySelector('.check').addEventListener('click', function () {
 });
 
 document.querySelector('.again').addEventListener('click', function () {
-  let score = 20;
+  score = 20;
 
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 

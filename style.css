@@ -76,8 +76,16 @@ h1 {
 .between {
   font-size: 1.4rem;
   position: absolute;
+  top: 35rem;
+  left: 41%;
+}
+
+.language {
+  font-size: 1.4rem;
+  position: absolute;
   top: 2rem;
   right: 2rem;
+  display: none;
 }
 
 .again {
